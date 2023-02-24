@@ -5,6 +5,8 @@
 package com.jp.persistencia;
 
 import com.jp.modelos.Dicionario;
+import com.jp.modelos.Busca;
+import com.jp.modelos.Ordenacao;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

@@ -52,4 +52,49 @@ public class Ordenacao {
         return A;
     }
     
+    // Mergesort e QuickSort
+    
+    public static int[] mergeSort(int[] v, int inicio, int meio, int fim) {
+        
+        // transfere os elementos entre left e right para um array auxiliar.
+        int[] helper = new int[v.length];
+        for (int i = inicio; i <= fim; i++) {
+            helper[i] = v[i];
+        }
+        
+        
+        int i = inicio;
+        int j = meio + 1;
+        int k = inicio;
+        
+        while (i <= meio && j <= fim) {
+            
+            if (helper[i] <= helper[j]) {
+                v[k] = helper[i];
+                i++;
+            } else {
+                v[k] = helper[j];
+                j++;
+            }
+            k++;    
+            
+        }
+        
+        // se a metade inicial não foi toda consumida, faz o append.
+        while (i <= meio) {
+            v[k] = helper[i];
+            i++;
+            k++;
+        }
+        
+        // se a metade final não foi toda consumida, faz o append.
+        while (j <= fim) {
+            v[k] = helper[j];
+            j++;
+            k++;
+        }
+        
+        return v;
+    }
+    
 }

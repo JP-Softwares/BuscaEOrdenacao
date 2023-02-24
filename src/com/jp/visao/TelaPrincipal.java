@@ -24,6 +24,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         adicionarTela(jInternalFrameTelaInicial);
         listar();
+        if('a' < 'b') JOptionPane.showMessageDialog(null, "a é menor que b");
     }
     
     public void listar(){
