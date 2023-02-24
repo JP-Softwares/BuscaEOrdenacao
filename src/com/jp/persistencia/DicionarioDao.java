@@ -19,6 +19,14 @@ public class DicionarioDao implements IDicionarioDao {
 
     File dicionarios[] = new File("./src/com/jp/dicionario").listFiles();
     
+    public static void main(String[] args){
+        int vetor[] = Ordenacao.mergeSort(new int[] {1, 4, 5, 3});
+        
+        for(int i = 0; i < vetor.length; i++){
+            System.out.print(vetor[i] + " | ");
+        }
+    }
+    
     public DicionarioDao(){
         
     }
@@ -60,6 +68,7 @@ public class DicionarioDao implements IDicionarioDao {
         dicionario.setVetorSecundario(palavras_arquivoSecundario);
         
         // Realizar a ordenação dos vetores aqui
+        dicionario.setVetorPT_BR(Ordenacao.selectionSort(dicionario.getVetorPT_BR()));
         // Talvez dê pra usar o new Thread() para realizar as multiplas operações com vetores
         return dicionario;
     }
