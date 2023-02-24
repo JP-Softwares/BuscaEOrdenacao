@@ -70,56 +70,68 @@ public class Ordenacao {
     // Mergesort e QuickSort
     
     //MergeSort não está funcionando
-    public static int[] mergeSort(int arr[]) {
-        int p = 0;
-        int r = arr.length - 1;
-        int q = (p + r)/2;
-        // Create L ← A[p..q] and M ← A[q+1..r]
-        int n1 = q - p + 1;
-        int n2 = r - q;
-
-        int L[] = new int[n1], M[] = new int[n2];
-
-        for (int i = 0; i < n1; i++)
-            L[i] = arr[p + i];
-        for (int j = 0; j < n2; j++)
-            M[j] = arr[q + 1 + j];
-
-        // Maintain current index of sub-arrays and main array
-        int i, j, k;
-        i = 0;
-        j = 0;
-        k = p;
-
-        // Until we reach either end of either L or M, pick larger among
-        // elements L and M and place them in the correct position at A[p..r]
-        while (i < n1 && j < n2) {
-            System.out.println("oi");
-            if (L[i] <= M[j]) {
-                arr[k] = L[i];
-                i++;
-            } else {
-                arr[k] = M[j];
-                j++;
-            }
-            k++;
-        }
-
-        // When we run out of elements in either L or M,
-        // pick up the remaining elements and put in A[p..r]
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
-        }
-
-        while (j < n2) {
-            arr[k] = M[j];
-            j++;
-            k++;
+    public static String[] mergeSort(String vetor[]) {
+        
+        int inicio = 0;
+        int fim = vetor.length - 1; // 1
+        int meio = (inicio + fim) / 2; // 0.5 -> 0
+        
+        String vetor1[] = new String[meio - inicio]; // 0
+        String vetor2[] = new String[fim - (meio + 1)]; // 0
+        
+        if(vetor2.length == 0) {
+            
         }
         
-        return arr;
+//        int p = 0;
+//        int r = arr.length - 1;
+//        int q = (p + r)/2;
+//        // Create L ← A[p..q] and M ← A[q+1..r]
+//        int n1 = q - p + 1;
+//        int n2 = r - q;
+//
+//        int L[] = new int[n1], M[] = new int[n2];
+//
+//        for (int i = 0; i < n1; i++)
+//            L[i] = arr[p + i];
+//        for (int j = 0; j < n2; j++)
+//            M[j] = arr[q + 1 + j];
+//
+//        // Maintain current index of sub-arrays and main array
+//        int i, j, k;
+//        i = 0;
+//        j = 0;
+//        k = p;
+//
+//        // Until we reach either end of either L or M, pick larger among
+//        // elements L and M and place them in the correct position at A[p..r]
+//        while (i < n1 && j < n2) {
+//            System.out.println("oi");
+//            if (L[i] <= M[j]) {
+//                arr[k] = L[i];
+//                i++;
+//            } else {
+//                arr[k] = M[j];
+//                j++;
+//            }
+//            k++;
+//        }
+//
+//        // When we run out of elements in either L or M,
+//        // pick up the remaining elements and put in A[p..r]
+//        while (i < n1) {
+//            arr[k] = L[i];
+//            i++;
+//            k++;
+//        }
+//
+//        while (j < n2) {
+//            arr[k] = M[j];
+//            j++;
+//            k++;
+//        }
+        
+        return vetor;
     }
     
 }

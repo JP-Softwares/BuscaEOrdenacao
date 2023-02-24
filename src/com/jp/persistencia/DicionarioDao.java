@@ -20,11 +20,7 @@ public class DicionarioDao implements IDicionarioDao {
     File dicionarios[] = new File("./src/com/jp/dicionario").listFiles();
     
     public static void main(String[] args){
-        int vetor[] = Ordenacao.mergeSort(new int[] {1, 4, 5, 3});
         
-        for(int i = 0; i < vetor.length; i++){
-            System.out.print(vetor[i] + " | ");
-        }
     }
     
     public DicionarioDao(){
