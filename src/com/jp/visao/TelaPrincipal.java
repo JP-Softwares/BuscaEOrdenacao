@@ -62,6 +62,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel2D3 = new com.jp.modelos.JLabel2D();
         jButton1 = new javax.swing.JButton();
         jLabel2D4 = new com.jp.modelos.JLabel2D();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         jInternalFrameTelaInicial.setBorder(null);
@@ -126,6 +127,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        jInternalFrame1.setBorder(null);
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 427, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,6 +209,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrameTelaInicial;
     private com.jp.modelos.JLabel2D jLabel2D1;
     private com.jp.modelos.JLabel2D jLabel2D2;
