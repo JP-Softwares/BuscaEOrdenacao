@@ -71,65 +71,98 @@ public class Ordenacao {
     
     //MergeSort não está funcionando
     public static String[] mergeSort(String vetor[]) {
+        if(vetor.length == 0) return vetor; // vetor não tem nenhuma posição
+        int inicio = 0; // Nos comentários abaixo estou testando quando o vetor tem 1, 2 e 3 posições.
+        int fim = vetor.length - 1; // 0, 1, 2 
+        int meio = (inicio + fim) / 2; // 0, 0.5 -> 0, 1
         
-        int inicio = 0;
-        int fim = vetor.length - 1; // 1
-        int meio = (inicio + fim) / 2; // 0.5 -> 0
+        String vetor1[] = new String[(meio - inicio) + 1]; // 1, 1, 2
+        String vetor2[] = new String[(fim - (meio + 1)) + 1]; // 0, 1, 1
         
-        String vetor1[] = new String[meio - inicio]; // 0
-        String vetor2[] = new String[fim - (meio + 1)]; // 0
+        if(vetor2.length == 0) return vetor; // Quer dizer que o vetor só tem 1 posição
         
-        if(vetor2.length == 0) {
-            
+        int contador = 0;
+        for(int i = 0; i < vetor1.length; i++){
+            vetor1[i] = vetor[contador];
+            contador++;
         }
         
-//        int p = 0;
-//        int r = arr.length - 1;
-//        int q = (p + r)/2;
-//        // Create L ← A[p..q] and M ← A[q+1..r]
-//        int n1 = q - p + 1;
-//        int n2 = r - q;
-//
-//        int L[] = new int[n1], M[] = new int[n2];
-//
-//        for (int i = 0; i < n1; i++)
-//            L[i] = arr[p + i];
-//        for (int j = 0; j < n2; j++)
-//            M[j] = arr[q + 1 + j];
-//
-//        // Maintain current index of sub-arrays and main array
-//        int i, j, k;
-//        i = 0;
-//        j = 0;
-//        k = p;
-//
-//        // Until we reach either end of either L or M, pick larger among
-//        // elements L and M and place them in the correct position at A[p..r]
-//        while (i < n1 && j < n2) {
-//            System.out.println("oi");
-//            if (L[i] <= M[j]) {
-//                arr[k] = L[i];
-//                i++;
-//            } else {
-//                arr[k] = M[j];
-//                j++;
-//            }
-//            k++;
-//        }
-//
-//        // When we run out of elements in either L or M,
-//        // pick up the remaining elements and put in A[p..r]
-//        while (i < n1) {
-//            arr[k] = L[i];
-//            i++;
-//            k++;
-//        }
-//
-//        while (j < n2) {
-//            arr[k] = M[j];
-//            j++;
-//            k++;
-//        }
+        for(int i = 0; i < vetor2.length; i++){
+            vetor2[i] = vetor[contador];
+            contador++;
+        }
+        
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                selectionSort(vetor1);
+            }
+        }).run();
+        
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                selectionSort(vetor2);
+            }
+        }).run();
+        
+//        selectionSort(vetor1);
+//        selectionSort(vetor2);
+        //vetor2 = 
+        
+        int cont = 0;
+        for(int i = 0; i < vetor.length; i++){
+            
+            if(i == vetor1.length) cont = 0;
+            
+            if(i < vetor1.length){
+                vetor[i] = vetor1[cont];
+                cont++;
+            }else{
+                vetor[i] = vetor2[cont];
+                cont++;
+            }
+        }
+        
+        
+        // transfere os elementos entre left e right para um array auxiliar.
+        String[] helper = new String[vetor.length];
+        for (int i = inicio; i <= fim; i++) {
+            helper[i] = vetor[i];
+        }
+
+
+        int i = 0;
+        int j = meio + 1;
+        int k = 0;
+
+        while (i <= meio && j <= fim) {
+
+            if (helper[i].length() <= helper[j].length()) {
+                vetor[k] = helper[i];
+                i++;
+            } else {
+                vetor[k] = helper[j];
+                j++;
+            }
+            k++;    
+
+        }
+
+        // se a metade inicial não foi toda consumida, faz o append.
+        while (i <= meio) {
+            vetor[k] = helper[i];
+            i++;
+            k++;
+        }
+
+        // se a metade final não foi toda consumida, faz o append.
+        while (j <= fim) {
+            vetor[k] = helper[j];
+            j++;
+            k++;
+        }
+
         
         return vetor;
     }

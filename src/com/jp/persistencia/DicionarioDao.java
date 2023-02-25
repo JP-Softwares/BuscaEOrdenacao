@@ -19,9 +19,27 @@ public class DicionarioDao implements IDicionarioDao {
 
     File dicionarios[] = new File("./src/com/jp/dicionario").listFiles();
     
-    public static void main(String[] args){
-        
-    }
+//    public static void main(String[] args){
+////        String[] vetor = {"opa", "fala meu", "oi", "de boa?"};
+////        
+////        long tempo = System.nanoTime();
+////        vetor = Ordenacao.mergeSort(vetor);
+////        tempo = System.nanoTime() - tempo;
+////        
+////        for(int i = 0; i < vetor.length; i++){
+////            System.out.print(vetor[i] + " | ");
+////        }
+////        System.out.println();
+////        
+////        System.out.println(tempo);
+//
+//        String vetor[] = new DicionarioDao().ordenarVetores("Arabic").getVetorPT_BR();
+//        
+//        for(int i = 0; i < vetor.length; i++){
+//            System.out.print(vetor[i] + " | ");
+//        }
+//        System.out.println("");
+//    }
     
     public DicionarioDao(){
         
@@ -64,7 +82,7 @@ public class DicionarioDao implements IDicionarioDao {
         dicionario.setVetorSecundario(palavras_arquivoSecundario);
         
         // Realizar a ordenação dos vetores aqui
-        dicionario.setVetorPT_BR(Ordenacao.selectionSort(dicionario.getVetorPT_BR()));
+        dicionario.setVetorPT_BR(Ordenacao.mergeSort(dicionario.getVetorPT_BR()));
         // Talvez dê pra usar o new Thread() para realizar as multiplas operações com vetores
         return dicionario;
     }
