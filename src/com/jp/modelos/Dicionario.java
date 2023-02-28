@@ -4,6 +4,7 @@
  */
 package com.jp.modelos;
 
+import com.jp.persistencia.DicionarioDao;
 import java.io.File;
 
 /**
@@ -48,6 +49,10 @@ public class Dicionario {
         }
         
         return idiomas;
+    }
+    
+    public static void ordenarTXT(File entradaTXT){
+        DicionarioDao.ordenarTXT(entradaTXT);
     }
 
     public String[] getVetor() {

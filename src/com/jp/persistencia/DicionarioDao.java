@@ -11,8 +11,11 @@ import com.jp.modelos.Search;
 import com.jp.modelos.Sort;
 import com.jp.modelos.Time;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import lista.Lista;
 
 /**
  *
@@ -40,13 +43,67 @@ public class DicionarioDao implements IDicionarioDao {
 ////        
 ////        System.out.println(tempo);
 //
-//        String vetor[] = new DicionarioDao("Arabic").ordenarVetores(1, Sort.QUICKSORT).getVetor();
+////        String vetor[] = new DicionarioDao("Arabic").ordenarVetores(1, Sort.QUICKSORT).getVetor();
+////        
+//
 //        
-//        for(int i = 0; i < vetor.length; i++){
-//            System.out.print(vetor[i] + " | ");
-//        }
-//        System.out.println("");
+////        for(int i = 0; i < vetor.length; i++){
+////            System.out.print(vetor[i] + " | ");
+////        }
+////        System.out.println("");
+//
+//        
+//        
+//        
+//        
 //    }
+    
+    public static void ordenarTXT(File entradaTXT){
+        try {
+            FileReader fr = new FileReader(entradaTXT);
+            BufferedReader br = new BufferedReader(fr);
+            
+            String linha = "";
+            Lista<String> palavras = new Lista<>();
+            
+            while((linha = br.readLine()) != null){
+                palavras.add(linha);
+            }
+            
+            br.close();
+            
+            Object[] objetoPalavras = palavras.toArray();
+            String[] vetorPalavra = new String[palavras.getTamanho()];
+            
+            for(int i = 0; i < vetorPalavra.length; i++){
+                vetorPalavra[i] = objetoPalavras[i].toString();
+            }
+            
+            vetorPalavra = Ordenacao.quickSort(vetorPalavra);
+            
+            File saidaTXT = new File(entradaTXT.getAbsolutePath().replace(entradaTXT.getName(), "saida"));
+            FileWriter fw = new FileWriter(saidaTXT);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            String saida = "";
+            
+            for(int i = 0; i < vetorPalavra.length; i++){
+                saida += vetorPalavra[i] + " " + vetorPalavra[i].length() + "\n";
+            }
+            
+            bw.write(saida);
+            
+            bw.close();
+            
+            //palavras = new String[Integer.parseInt(br.readLine())];
+            
+            //for(int i = 0; i < palavras.length; i++) palavras[i] = br.readLine();
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
     public DicionarioDao(String idiomaSecundario) {
         buscarVetores(idiomaSecundario);
