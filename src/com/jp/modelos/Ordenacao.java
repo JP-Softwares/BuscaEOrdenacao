@@ -167,6 +167,7 @@ public class Ordenacao {
     }
     
     // QuickSort não está funcionando
+    
     public static String[] quickSort(String vetor[]){
         
         quickSort_Recursivo(vetor, 0, vetor.length-1);
@@ -174,56 +175,81 @@ public class Ordenacao {
         return vetor;
     }
     
-    private static void quickSort_Recursivo(String vetor[], int inicio, int fim){
-        if(fim > inicio) {
-            //Chamada da rotina que ira dividir o vetor em 3 partes.
-            int indexPivo = dividir(vetor, inicio, fim);
-            /* Chamada recursiva para redivisao do vetor de elementos menores
-              que o pivô. */
-            quickSort_Recursivo(vetor, inicio, indexPivo - 1);
-            /* Chamada recursiva para redivisao do vetor de elementos maiores
-              que o pivô. */
-            quickSort_Recursivo(vetor, indexPivo + 1, fim);
-          }
-    }
+    private static void quickSort_Recursivo(String a[], int p, int u) { 
+        int i = p, f = u;                        // Extremos 
+        int x = (int) (Math.random()*(u-p+1))+p; // Aleatório 
+        String pivô = a[x];                         // para evitar quadrático 
+
+        while (i <= f)  // Enquanto não se cruzarem 
+        {                        
+
+          while (i < u && a[i].length() < pivô.length()) i++;      // Organiza primeira metade 
+
+          while (f > p && a[f].length() > pivô.length()) f--;      // Organiza segunda metade 
+
+          if (i <= f) {                          // Se ainda não acabou 
+            String aux = a[f];                            // troca os elementos 
+            a[f--] = a[i];                       // dos dois lados 
+            a[i++] = aux;                          // da lista 
+          } 
+        } 
+
+        if (p < f) quickSort_Recursivo(a,p,f);                // a[p]..a[f] < pivô 
+        if (i < u) quickSort_Recursivo(a,i,u);                // a[i]..a[u] > pivô 
+
+       
+     }
     
-    public static int dividir(String[] vetor, int inicio, int fim) {
-        String pivo;
-        int pontEsq, pontDir = fim;
-        pontEsq = inicio + 1;
-        pivo = vetor[inicio];
-
-        while(pontEsq <= pontDir) {
-          /* Vai correr o vetor ate que ultrapasse o outro ponteiro
-            ou ate que o elemento em questão seja menor que o pivô. */
-          while(pontEsq <= pontDir && vetor[pontEsq].length() <= pivo.length()) {
-            pontEsq++;
-          }
-
-          /* Vai correr o vetor ate que ultrapasse o outro ponteiro
-            que o elemento em questão seja maior que o pivô. */
-          while(pontDir >= pontEsq && vetor[pontDir].length() > pivo.length()) {
-            pontDir--;
-          }
-
-          /* Caso os ponteiros ainda nao tenham se cruzado, significa que valores
-            menores e maiores que o pivô foram localizados em ambos os lados.
-            Trocar estes elementos de lado. */
-          if(pontEsq < pontDir) {
-            trocar(vetor, pontDir, pontEsq);
-            pontEsq++;
-            pontDir--;
-          }
-        }
-
-        trocar(vetor, inicio, pontDir);
-        return pontDir;
-    }
+//    private static void quickSort_Recursivo(String vetor[], int inicio, int fim){
+//        if(fim > inicio) {
+//            //Chamada da rotina que ira dividir o vetor em 3 partes.
+//            int indexPivo = dividir(vetor, inicio, fim);
+//            /* Chamada recursiva para redivisao do vetor de elementos menores
+//              que o pivô. */
+//            quickSort_Recursivo(vetor, inicio, indexPivo - 1);
+//            /* Chamada recursiva para redivisao do vetor de elementos maiores
+//              que o pivô. */
+//            quickSort_Recursivo(vetor, indexPivo + 1, fim);
+//          }
+//    }
     
-    public static void trocar(String[] vetor, int i, int j){
-        String aux = vetor[i];
-        vetor[i] = vetor[j];
-        vetor[j] = aux;
-    }
+//    public static int dividir(String[] vetor, int inicio, int fim) {
+//        String pivo;
+//        int pontEsq, pontDir = fim;
+//        pontEsq = inicio + 1;
+//        pivo = vetor[inicio];
+//
+//        while(pontEsq <= pontDir) {
+//          /* Vai correr o vetor ate que ultrapasse o outro ponteiro
+//            ou ate que o elemento em questão seja menor que o pivô. */
+//          while(pontEsq <= pontDir && vetor[pontEsq].length() <= pivo.length()) {
+//            pontEsq++;
+//          }
+//
+//          /* Vai correr o vetor ate que ultrapasse o outro ponteiro
+//            que o elemento em questão seja maior que o pivô. */
+//          while(pontDir >= pontEsq && vetor[pontDir].length() > pivo.length()) {
+//            pontDir--;
+//          }
+//
+//          /* Caso os ponteiros ainda nao tenham se cruzado, significa que valores
+//            menores e maiores que o pivô foram localizados em ambos os lados.
+//            Trocar estes elementos de lado. */
+//          if(pontEsq < pontDir) {
+//            trocar(vetor, pontDir, pontEsq);
+//            pontEsq++;
+//            pontDir--;
+//          }
+//        }
+//
+//        trocar(vetor, inicio, pontDir);
+//        return pontDir;
+//    }
+//    
+//    public static void trocar(String[] vetor, int i, int j){
+//        String aux = vetor[i];
+//        vetor[i] = vetor[j];
+//        vetor[j] = aux;
+//    }
     
 }

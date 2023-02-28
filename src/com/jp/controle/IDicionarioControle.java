@@ -2,22 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.jp.persistencia;
+package com.jp.controle;
 
 import com.jp.modelos.Dicionario;
 import com.jp.modelos.Search;
 import com.jp.modelos.Sort;
 import com.jp.modelos.Time;
-import java.io.File;
+
 /**
  *
- * @author Woly
+ * @author aluno
  */
-public interface IDicionarioDao { 
+public interface IDicionarioControle {
     
-    //String[] listarIdiomas();
-    
-    Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time); // Se 1 = PT_BR, se 2 = idiomaSecundário
+    Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time);
     
     Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra, Time time);
+
 }

@@ -15,7 +15,8 @@ public class Dicionario {
     private static File dicionarios[] = new File("./src/com/jp/dicionario").listFiles();
 
     private String[] vetor = null;
-    private long tempoDeResposta = 0;
+    private long tempoDeResposta_milisegundo = 0;
+    private long tempoDeResposta_nanosegundo = 0;
     private boolean achou = false;
     
     public Dicionario(){
@@ -26,14 +27,16 @@ public class Dicionario {
         this.vetor = vetor;
     }
     
-    public Dicionario(String[] vetor, long tempoDeResposta){
+    public Dicionario(String[] vetor, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo){
         this.vetor = vetor;
-        this.tempoDeResposta = tempoDeResposta;
+        this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
+        this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
     }
     
-    public Dicionario(String[] vetor, long tempoDeResposta, boolean achou){
+    public Dicionario(String[] vetor, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo, boolean achou){
         this.vetor = vetor;
-        this.tempoDeResposta = tempoDeResposta;
+        this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
+        this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
         this.achou = achou;
     }
     
@@ -55,12 +58,20 @@ public class Dicionario {
         this.vetor = vetor;
     }
 
-    public long getTempoDeResposta() {
-        return tempoDeResposta;
+    public long getTempoDeResposta_milisegundo() {
+        return tempoDeResposta_milisegundo;
     }
 
-    public void setTempoDeResposta(long tempoDeResposta) {
-        this.tempoDeResposta = tempoDeResposta;
+    public void setTempoDeResposta_milisegundo(long tempoDeResposta_milisegundo) {
+        this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
+    }
+
+    public long getTempoDeResposta_nanosegundo() {
+        return tempoDeResposta_nanosegundo;
+    }
+
+    public void setTempoDeResposta_nanosegundo(long tempoDeResposta_nanosegundo) {
+        this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
     }
     
     public boolean isAchou() {

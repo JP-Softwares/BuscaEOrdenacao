@@ -9,6 +9,7 @@ import com.jp.modelos.Busca;
 import com.jp.modelos.Ordenacao;
 import com.jp.modelos.Search;
 import com.jp.modelos.Sort;
+import com.jp.modelos.Time;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -25,29 +26,29 @@ public class DicionarioDao implements IDicionarioDao {
     private String[] palavras_arquivoSecundario = null;
     
     
-    public static void main(String[] args){
-//        String[] vetor = {"opa", "fala meu", "oi", "de boa?"};
-//        
-//        long tempo = System.nanoTime();
-//        vetor = Ordenacao.mergeSort(vetor);
-//        tempo = System.nanoTime() - tempo;
+//    public static void main(String[] args){
+////        String[] vetor = {"opa", "fala meu", "oi", "de boa?"};
+////        
+////        long tempo = System.nanoTime();
+////        vetor = Ordenacao.mergeSort(vetor);
+////        tempo = System.nanoTime() - tempo;
+////        
+////        for(int i = 0; i < vetor.length; i++){
+////            System.out.print(vetor[i] + " | ");
+////        }
+////        System.out.println();
+////        
+////        System.out.println(tempo);
+//
+//        String vetor[] = new DicionarioDao("Arabic").ordenarVetores(1, Sort.QUICKSORT).getVetor();
 //        
 //        for(int i = 0; i < vetor.length; i++){
 //            System.out.print(vetor[i] + " | ");
 //        }
-//        System.out.println();
-//        
-//        System.out.println(tempo);
-
-        String vetor[] = new DicionarioDao("Arabic").ordenarVetores(1, Sort.QUICKSORT).getVetor();
-        
-        for(int i = 0; i < vetor.length; i++){
-            System.out.print(vetor[i] + " | ");
-        }
-        System.out.println("");
-    }
+//        System.out.println("");
+//    }
     
-    public DicionarioDao(String idiomaSecundario){
+    public DicionarioDao(String idiomaSecundario) {
         buscarVetores(idiomaSecundario);
     }
     
@@ -102,58 +103,96 @@ public class DicionarioDao implements IDicionarioDao {
     }
 
     @Override
-    public Dicionario ordenarVetores(int vetor, Sort ordenacao) {
+    public Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time) {
+        
         String vetorPalavra[] = (vetor == 1) ? this.palavras_arquivoPTBR : this.palavras_arquivoSecundario;
         Dicionario dicionario = new Dicionario(vetorPalavra);
-        long tempo = 0;
+        long milisegundo = 0;
+        long nanosegundo = 0;
         
         switch (ordenacao) {
             case SELECTIONSORT:
-                tempo = System.currentTimeMillis();
+                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.selectionSort(vetorPalavra);
-                tempo = System.currentTimeMillis() - tempo;
+                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case INSERTIONSORT:
-                tempo = System.currentTimeMillis();
+                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.selectionSort(vetorPalavra);
-                tempo = System.currentTimeMillis() - tempo;
+                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case MERGESORT:
-                tempo = System.currentTimeMillis();
+                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.mergeSort(vetorPalavra);
-                tempo = System.currentTimeMillis() - tempo;
+                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case QUICKSORT:
-                tempo = System.currentTimeMillis();
+                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.quickSort(vetorPalavra);
-                tempo = System.currentTimeMillis() - tempo;
+                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
         }
         
-        dicionario.setTempoDeResposta(tempo);
+        dicionario.setTempoDeResposta_milisegundo(milisegundo);
+        dicionario.setTempoDeResposta_nanosegundo(nanosegundo);
         
         return dicionario;
     }
 
     @Override
-    public Dicionario buscar(int vetor, Search busca, String palavra) {
+    public Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra, Time time) {
         String vetorPalavra[] = (vetor == 1) ? this.palavras_arquivoPTBR : this.palavras_arquivoSecundario;
         Dicionario dicionario = new Dicionario(vetorPalavra);
         // Realizar a busca nos vetores aqui
-        
+        long milisegundo = 0;
+        long nanosegundo = 0;
+
         boolean achou = false;
+        
         switch (busca) {
             case SEQUENCIAL:
+                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 achou = Busca.sequencial(vetorPalavra, palavra);
+                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case BINARIA:
-                achou = Busca.binaria(vetorPalavra, palavra, 0, vetorPalavra.length-1);
+                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                String[] vetorOrdenado = ordenarVetores(vetor, ordenacao, time).getVetor();
+                achou = Busca.binaria(vetorOrdenado, palavra, 0, vetorPalavra.length-1);
+                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
         }
+        
+        dicionario.setTempoDeResposta_milisegundo(milisegundo);
+        
+        dicionario.setTempoDeResposta_nanosegundo(nanosegundo);
         
         dicionario.setAchou(achou);
         
         return dicionario;
     }
+    
+    enum Tempo {
+        ANTES, DEPOIS
+    };
+    
+    private void tempoAtual(Tempo tempo, long milisegundo, long nanosegundo){
+        switch (tempo) {
+            case ANTES:
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                break;
+            case DEPOIS:
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime()- System.nanoTime();
+                break;
+        }
+    }
+    
+//    private boolean vetorExiste(int vetor){
+//        if(vetor != 1 || vetor != 2) return false;
+//        
+//        return true;
+//    }
     
 }
