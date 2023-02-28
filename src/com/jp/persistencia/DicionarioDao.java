@@ -79,9 +79,11 @@ public class DicionarioDao implements IDicionarioDao {
                 vetorPalavra[i] = objetoPalavras[i].toString();
             }
             
+            System.out.println("antes de ordenar: " + vetorPalavra.length);
             vetorPalavra = Ordenacao.quickSort(vetorPalavra);
+            System.out.println("depois de ordenar: " + vetorPalavra.length);
             
-            File saidaTXT = new File(entradaTXT.getAbsolutePath().replace(entradaTXT.getName(), "saida"));
+            File saidaTXT = new File(entradaTXT.getAbsolutePath().replace(entradaTXT.getName(), "saida.txt"));
             FileWriter fw = new FileWriter(saidaTXT);
             BufferedWriter bw = new BufferedWriter(fw);
             
