@@ -5,15 +5,18 @@
 package com.jp.persistencia;
 
 import com.jp.modelos.Dicionario;
+import com.jp.modelos.Search;
+import com.jp.modelos.Sort;
+import java.io.File;
 /**
  *
  * @author Woly
  */
-public interface IDicionarioDao {
+public interface IDicionarioDao { 
     
-    String[] listarIdiomas();
+    //String[] listarIdiomas();
     
-    Dicionario ordenarVetores(String idiomaSecundario);
+    Dicionario ordenarVetores(int vetor, Sort ordenacao); // Se 1 = PT_BR, se 2 = idiomaSecundário
     
-    Dicionario buscar(Dicionario dicionario, String palavra);
+    Dicionario buscar(int vetor, Search busca, String palavra);
 }
