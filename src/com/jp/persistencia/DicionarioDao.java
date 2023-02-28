@@ -67,16 +67,12 @@ public class DicionarioDao implements IDicionarioDao {
             Lista<String> palavras = new Lista<>();
             
             while((linha = br.readLine()) != null){
-                System.out.println("oi");
                 palavras.add(linha);
             }
-            
-            System.out.println(palavras.getTamanho());
             
             br.close();
             
             Object[] objetoPalavras = palavras.toArray();
-            System.out.println(objetoPalavras.length);
             String[] vetorPalavra = new String[palavras.getTamanho()];
             
             for(int i = 0; i < vetorPalavra.length; i++){
