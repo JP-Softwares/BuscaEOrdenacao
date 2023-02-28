@@ -38,19 +38,18 @@ public class Lista<E> {
     }
     
     public void add(E valor){
-        if(this.valor == null) {
+        if(this.valor == null) { // caiu
             this.valor = valor;
-            tamanho++;
+            tamanho++; // tamanho = 1
             return;
         }
         
-        if(this.proximo == null){
-            proximo = new Lista<>(valor);
-            tamanho++;
-            return;
+        Lista<E> lista = this;
+        while(lista.proximo != null){
+            lista = lista.proximo;
         }
-        
-        proximo.add(valor);
+        lista.proximo = new Lista<E>(valor);
+        this.tamanho++;
     }
     
     

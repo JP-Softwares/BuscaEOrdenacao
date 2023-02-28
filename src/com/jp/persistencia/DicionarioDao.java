@@ -45,7 +45,7 @@ public class DicionarioDao implements IDicionarioDao {
 //
 ////        String vetor[] = new DicionarioDao("Arabic").ordenarVetores(1, Sort.QUICKSORT).getVetor();
 ////        
-//
+//        
 //        
 ////        for(int i = 0; i < vetor.length; i++){
 ////            System.out.print(vetor[i] + " | ");
