@@ -53,94 +53,219 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrameTelaInicial = new javax.swing.JInternalFrame();
-        jLabel2D1 = new com.jp.modelos.JLabel2D();
-        jLabel2D2 = new com.jp.modelos.JLabel2D();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jLabel2D3 = new com.jp.modelos.JLabel2D();
-        jButton1 = new javax.swing.JButton();
-        jLabel2D4 = new com.jp.modelos.JLabel2D();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jButtonGoFun = new javax.swing.JButton();
+        jButtonGoDic = new javax.swing.JButton();
+        jFileChooser2 = new javax.swing.JFileChooser();
+        jInternalFrameTestDicionario = new javax.swing.JInternalFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldTempoDeOrdenacao = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jInternalFrameTesteFuncional = new javax.swing.JInternalFrame();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         jInternalFrameTelaInicial.setBorder(null);
         jInternalFrameTelaInicial.setVisible(true);
 
-        jLabel2D1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2D1.setText("Busca e Ordenação");
-        jLabel2D1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jButtonGoFun.setText("Teste Funcional");
 
-        jLabel2D2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2D2.setText("Escolha duas línguas para fazer a busca:");
-        jLabel2D2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-
-        jScrollPane2.setViewportView(jList1);
-
-        jScrollPane3.setViewportView(jList2);
-
-        jLabel2D3.setText("Primeira língua:");
-        jLabel2D3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton1.setText("Avançar");
-
-        jLabel2D4.setText("Segunda língua:");
-        jLabel2D4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jButtonGoDic.setText("Teste Dicionario");
 
         javax.swing.GroupLayout jInternalFrameTelaInicialLayout = new javax.swing.GroupLayout(jInternalFrameTelaInicial.getContentPane());
         jInternalFrameTelaInicial.getContentPane().setLayout(jInternalFrameTelaInicialLayout);
         jInternalFrameTelaInicialLayout.setHorizontalGroup(
             jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2D1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel2D2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrameTelaInicialLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jFileChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addGroup(jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2D3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2D4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(jButton1)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                    .addComponent(jButtonGoDic, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonGoFun, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         jInternalFrameTelaInicialLayout.setVerticalGroup(
             jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2D1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
+                        .addComponent(jButtonGoFun)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonGoDic))
+                    .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jFileChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+
+        jInternalFrameTestDicionario.setBorder(null);
+        jInternalFrameTestDicionario.setVisible(true);
+
+        jLabel1.setText("Escolha o dicionario");
+
+        jLabel2.setText("Tempo em Milisegundos");
+
+        jTextFieldTempoDeOrdenacao.setEditable(false);
+        jTextFieldTempoDeOrdenacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTempoDeOrdenacaoActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jScrollPane1.setViewportView(jTextPane1);
+
+        jButton7.setText("MergeSort");
+
+        jButton8.setText("BubbleSort");
+
+        jButton9.setText("InsertionSort");
+
+        jButton10.setText("QuickSort");
+
+        javax.swing.GroupLayout jInternalFrameTestDicionarioLayout = new javax.swing.GroupLayout(jInternalFrameTestDicionario.getContentPane());
+        jInternalFrameTestDicionario.getContentPane().setLayout(jInternalFrameTestDicionarioLayout);
+        jInternalFrameTestDicionarioLayout.setHorizontalGroup(
+            jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTempoDeOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                                .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(419, 419, 419))
+                            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                                .addComponent(jButton8)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jInternalFrameTestDicionarioLayout.setVerticalGroup(
+            jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2D2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jButton10))
+                .addGap(103, 103, 103)
+                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextFieldTempoDeOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jInternalFrameTesteFuncional.setBorder(null);
+        jInternalFrameTesteFuncional.setVisible(true);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setText("Teste Funcional");
+
+        jLabel4.setText("Escreva a palavra");
+
+        jLabel5.setText("Palavra encontrada?");
+
+        jTextField2.setEditable(false);
+
+        jLabel6.setText("tempo de procura:");
+
+        jTextField3.setEditable(false);
+
+        jButton4.setText("Busca Binária");
+
+        jButton6.setText("Busca  Sequencial");
+
+        javax.swing.GroupLayout jInternalFrameTesteFuncionalLayout = new javax.swing.GroupLayout(jInternalFrameTesteFuncional.getContentPane());
+        jInternalFrameTesteFuncional.getContentPane().setLayout(jInternalFrameTesteFuncionalLayout);
+        jInternalFrameTesteFuncionalLayout.setHorizontalGroup(
+            jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                        .addGap(278, 278, 278)
+                        .addComponent(jLabel3))
+                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(jTextField2)))
+                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jButton4)
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton6))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(252, Short.MAX_VALUE))
+        );
+        jInternalFrameTesteFuncionalLayout.setVerticalGroup(
+            jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2D3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2D4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-
-        jInternalFrame1.setBorder(null);
-        jInternalFrame1.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 427, Short.MAX_VALUE)
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton6))
+                .addGap(35, 35, 35)
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -170,6 +295,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldTempoDeOrdenacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTempoDeOrdenacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTempoDeOrdenacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,17 +336,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonGoDic;
+    private javax.swing.JButton jButtonGoFun;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JFileChooser jFileChooser2;
     private javax.swing.JInternalFrame jInternalFrameTelaInicial;
-    private com.jp.modelos.JLabel2D jLabel2D1;
-    private com.jp.modelos.JLabel2D jLabel2D2;
-    private com.jp.modelos.JLabel2D jLabel2D3;
-    private com.jp.modelos.JLabel2D jLabel2D4;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JInternalFrame jInternalFrameTestDicionario;
+    private javax.swing.JInternalFrame jInternalFrameTesteFuncional;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldTempoDeOrdenacao;
+    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
