@@ -67,21 +67,23 @@ public class DicionarioDao implements IDicionarioDao {
             Lista<String> palavras = new Lista<>();
             
             while((linha = br.readLine()) != null){
+                System.out.println("oi");
                 palavras.add(linha);
             }
+            
+            System.out.println(palavras.getTamanho());
             
             br.close();
             
             Object[] objetoPalavras = palavras.toArray();
+            System.out.println(objetoPalavras.length);
             String[] vetorPalavra = new String[palavras.getTamanho()];
             
             for(int i = 0; i < vetorPalavra.length; i++){
                 vetorPalavra[i] = objetoPalavras[i].toString();
             }
             
-            System.out.println("antes de ordenar: " + vetorPalavra.length);
             vetorPalavra = Ordenacao.quickSort(vetorPalavra);
-            System.out.println("depois de ordenar: " + vetorPalavra.length);
             
             File saidaTXT = new File(entradaTXT.getAbsolutePath().replace(entradaTXT.getName(), "saida.txt"));
             FileWriter fw = new FileWriter(saidaTXT);
