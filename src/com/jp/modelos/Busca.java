@@ -10,23 +10,23 @@ package com.jp.modelos;
  */
 public class Busca {
     
-    public static boolean sequencial(int A[], int x){
-        for(int i = 0; i < A.length; i++){
-            if(x == A[i]) return true;
+    public static boolean sequencial(String vetor[], String palavra){
+        for(int i = 0; i < vetor.length; i++){
+            if(vetor[i].equals(palavra)) return true;
         }
         
         return false;
     }
     
-    public static boolean binaria(int A[], int x, int inicio, int fim){
+    public static boolean binaria(String vetor[], String palavra, int inicio, int fim){
         if(inicio > fim) return false;
         
         int meio = (inicio + fim)/2;
         
-        if(x == A[meio]) return true;
+        if(vetor[meio].equals(palavra)) return true;
         
-        if(x < A[meio]) return binaria(A, x, inicio, meio - 1);
+        if(palavra.length() < vetor[meio].length()) return binaria(vetor, palavra, inicio, meio - 1);
         
-        return binaria(A, x, meio + 1, fim);
+        return binaria(vetor, palavra, meio + 1, fim);
     }
 }
