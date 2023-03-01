@@ -240,7 +240,7 @@ public class DicionarioDao implements IDicionarioDao {
                 break;
             case DEPOIS:
                 milisegundo = System.currentTimeMillis() - milisegundo;
-                nanosegundo = System.nanoTime()- System.nanoTime();
+                nanosegundo = System.nanoTime()- nanosegundo;
                 break;
         }
     }
