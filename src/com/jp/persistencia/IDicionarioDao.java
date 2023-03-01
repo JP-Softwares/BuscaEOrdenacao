@@ -7,7 +7,6 @@ package com.jp.persistencia;
 import com.jp.modelos.Dicionario;
 import com.jp.modelos.Search;
 import com.jp.modelos.Sort;
-import com.jp.modelos.Time;
 import java.io.File;
 /**
  *

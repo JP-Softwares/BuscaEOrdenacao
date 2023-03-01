@@ -9,7 +9,6 @@ import com.jp.modelos.Busca;
 import com.jp.modelos.Ordenacao;
 import com.jp.modelos.Search;
 import com.jp.modelos.Sort;
-import com.jp.modelos.Time;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
