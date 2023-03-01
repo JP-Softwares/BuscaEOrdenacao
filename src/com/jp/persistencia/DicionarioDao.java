@@ -147,7 +147,7 @@ public class DicionarioDao implements IDicionarioDao {
             
             palavras = new String[Integer.parseInt(br.readLine())];
             
-            for(int i = 0; i < palavras.length; i++) palavras[i] = br.readLine();
+            for(int i = 0; i < palavras.length; i++) palavras[i] = br.readLine().split("/")[0];
             
             br.close();
             
@@ -162,7 +162,7 @@ public class DicionarioDao implements IDicionarioDao {
     public Dicionario ordenarVetores(int vetor, Sort ordenacao) {
         
         String vetorPalavra[] = (vetor == 1) ? this.palavras_arquivoPTBR : this.palavras_arquivoSecundario;
-        Dicionario dicionario = new Dicionario(vetorPalavra);
+        Dicionario dicionario = new Dicionario();
         long milisegundo = 0;
         long nanosegundo = 0;
         
@@ -208,13 +208,15 @@ public class DicionarioDao implements IDicionarioDao {
         dicionario.setTempoDeResposta_milisegundo(milisegundo);
         dicionario.setTempoDeResposta_nanosegundo(nanosegundo);
         
+        dicionario.setVetor(vetorPalavra);
+        
         return dicionario;
     }
 
     @Override
     public Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra) {
         String vetorPalavra[] = (vetor == 1) ? this.palavras_arquivoPTBR : this.palavras_arquivoSecundario;
-        Dicionario dicionario = new Dicionario(vetorPalavra);
+        Dicionario dicionario = new Dicionario();
         // Realizar a busca nos vetores aqui
         long milisegundo = 0;
         long nanosegundo = 0;
@@ -235,8 +237,9 @@ public class DicionarioDao implements IDicionarioDao {
                 milisegundo = System.currentTimeMillis();
                 nanosegundo = System.nanoTime();
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                String[] vetorOrdenado = ordenarVetores(vetor, ordenacao).getVetor();
-                achou = Busca.binaria(vetorOrdenado, palavra, 0, vetorPalavra.length-1);
+                vetorPalavra = ordenarVetores(vetor, ordenacao).getVetor();
+                achou = Busca.binaria(vetorPalavra, palavra, 0, vetorPalavra.length-1);
+                System.out.println(achou);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
@@ -248,6 +251,8 @@ public class DicionarioDao implements IDicionarioDao {
         dicionario.setTempoDeResposta_nanosegundo(nanosegundo);
         
         dicionario.setAchou(achou);
+        
+        dicionario.setVetor(vetorPalavra);
         
         return dicionario;
     }

@@ -423,11 +423,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButtonBuscaBinariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaBinariaActionPerformed
         if(jComboBoxFun.getSelectedItem().toString().equals("Portuguese (Brazilian)")){
             dicionarioControle = new DicionarioControle("Persian");
-            dicionario = dicionarioControle.buscar(1, Search.BINARIA, Sort.QUICKSORT, jTextFieldPalavra.getText());
+            dicionario = dicionarioControle.buscar(1, Search.BINARIA, Sort.SELECTIONSORT, jTextFieldPalavra.getText());
             
         }else{
             dicionarioControle = new DicionarioControle(jComboBoxFun.getSelectedItem().toString());
-            dicionario = dicionarioControle.buscar(2, Search.BINARIA, Sort.QUICKSORT, jTextFieldPalavra.getText());
+            dicionario = dicionarioControle.buscar(2, Search.BINARIA, Sort.SELECTIONSORT, jTextFieldPalavra.getText());
         }
         
         jTextFieldEncontrada.setText((dicionario.isAchou()) ? "Sim" : "Não");

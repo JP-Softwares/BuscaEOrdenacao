@@ -212,7 +212,7 @@ public class Ordenacao {
 //            quickSort_Recursivo(vetor, indexPivo + 1, fim);
 //          }
 //    }
-    
+//    
 //    public static int dividir(String[] vetor, int inicio, int fim) {
 //        String pivo;
 //        int pontEsq, pontDir = fim;
