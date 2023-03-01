@@ -34,26 +34,22 @@ public class Busca {
         if(palavra.length() == vetor[meio].length()){
             int cont = 1;
             
-            Lista<String> lista = new Lista<>(vetor[meio]);
-            
-            while(vetor[meio - cont].length() == palavra.length()){
+            while(vetor[meio - cont].length() == palavra.length() && !vetor[meio - cont].equals(palavra)){
                 cont++;
-                lista.add(vetor[meio - cont]);
+                
             }
+            
+            if(vetor[meio - cont].equals(palavra)) return true;
             
             cont = 1;
             
-            while(vetor[meio + cont].length() == palavra.length()){
+            while(vetor[meio + cont].length() == palavra.length() && !vetor[meio - cont].equals(palavra)){
                 cont++;
-                lista.add(vetor[meio + cont]);
             }
             
-            Object[] objetoLista = lista.toArray();
-            vetor = new String[objetoLista.length];
+            if(vetor[meio - cont].equals(palavra)) return true;
             
-            for(int i = 0; i < objetoLista.length; i++) vetor[i] = objetoLista[i].toString();
-            
-            return sequencial(vetor, palavra);
+            return false;
         }
         
         return binaria(vetor, palavra, meio + 1, fim);

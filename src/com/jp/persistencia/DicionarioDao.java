@@ -147,7 +147,7 @@ public class DicionarioDao implements IDicionarioDao {
             
             palavras = new String[Integer.parseInt(br.readLine())];
             
-            for(int i = 0; i < palavras.length; i++) palavras[i] = br.readLine().split("/")[0];
+            for(int i = 0; i < palavras.length; i++) palavras[i] = br.readLine();
             
             br.close();
             
