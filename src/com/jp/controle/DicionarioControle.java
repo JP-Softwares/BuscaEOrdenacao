@@ -24,12 +24,12 @@ public class DicionarioControle implements IDicionarioControle {
     }
 
     @Override
-    public Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time) {
-        return dicionarioControle.ordenarVetores(vetor, ordenacao, time);
+    public Dicionario ordenarVetores(int vetor, Sort ordenacao) {
+        return dicionarioControle.ordenarVetores(vetor, ordenacao);
     }
 
     @Override
-    public Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra, Time time) {
-        return dicionarioControle.buscar(vetor, busca, ordenacao, palavra, time);
+    public Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra) {
+        return dicionarioControle.buscar(vetor, busca, ordenacao, palavra);
     }
 }

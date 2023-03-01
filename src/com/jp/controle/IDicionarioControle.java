@@ -15,8 +15,8 @@ import com.jp.modelos.Time;
  */
 public interface IDicionarioControle {
     
-    Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time);
+    Dicionario ordenarVetores(int vetor, Sort ordenacao);
     
-    Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra, Time time);
+    Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra);
 
 }
