@@ -5,8 +5,18 @@
 package com.jp.visao;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import com.jp.controle.DicionarioControle;
+import com.jp.controle.IDicionarioControle;
+import com.jp.modelos.Busca;
+import com.jp.modelos.Dicionario;
+import com.jp.modelos.Search;
+import com.jp.modelos.Sort;
+import java.io.File;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -18,17 +28,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
+    
+    IDicionarioControle dicionarioControle = null;
+    Dicionario dicionario = null;
+    
     public TelaPrincipal() {
         //lookAndFeel();
         initComponents();
         this.setLocationRelativeTo(null);
         adicionarTela(jInternalFrameTelaInicial);
         listar();
-        if('a' < 'b') JOptionPane.showMessageDialog(null, "a é menor que b");
+        
     }
     
     public void listar(){
-        
+        jComboBox1.setModel(new DefaultComboBoxModel<>(Dicionario.listarIdiomas()));
+        jComboBoxFun.setModel(new DefaultComboBoxModel<>(Dicionario.listarIdiomas()));
     }
     
     private void adicionarTela(JInternalFrame tela){
@@ -55,7 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jInternalFrameTelaInicial = new javax.swing.JInternalFrame();
         jButtonGoFun = new javax.swing.JButton();
         jButtonGoDic = new javax.swing.JButton();
-        jFileChooser2 = new javax.swing.JFileChooser();
+        jButtonEscolhertxt = new javax.swing.JButton();
         jInternalFrameTestDicionario = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -69,22 +84,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jInternalFrameTesteFuncional = new javax.swing.JInternalFrame();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldPalavra = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldEncontrada = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldTempoBusca = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButtonBuscaSequencial = new javax.swing.JButton();
+        jComboBoxFun = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         jInternalFrameTelaInicial.setBorder(null);
         jInternalFrameTelaInicial.setVisible(true);
 
         jButtonGoFun.setText("Teste Funcional");
+        jButtonGoFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGoFunActionPerformed(evt);
+            }
+        });
 
         jButtonGoDic.setText("Teste Dicionario");
+        jButtonGoDic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGoDicActionPerformed(evt);
+            }
+        });
+
+        jButtonEscolhertxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonEscolhertxt.setText("Entrada");
+        jButtonEscolhertxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEscolhertxtMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrameTelaInicialLayout = new javax.swing.GroupLayout(jInternalFrameTelaInicial.getContentPane());
         jInternalFrameTelaInicial.getContentPane().setLayout(jInternalFrameTelaInicialLayout);
@@ -92,25 +127,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrameTelaInicialLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jFileChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonGoDic, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonGoFun, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
+                .addGap(291, 291, 291)
+                .addComponent(jButtonEscolhertxt)
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         jInternalFrameTelaInicialLayout.setVerticalGroup(
             jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
-                .addGroup(jInternalFrameTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
-                        .addComponent(jButtonGoFun)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonGoDic))
-                    .addGroup(jInternalFrameTelaInicialLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jFileChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addComponent(jButtonGoFun)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonGoDic)
+                .addGap(111, 111, 111)
+                .addComponent(jButtonEscolhertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         jInternalFrameTestDicionario.setBorder(null);
@@ -159,17 +193,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(419, 419, 419))
-                            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
-                                .addComponent(jButton8)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(48, 48, 48)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         jInternalFrameTestDicionarioLayout.setVerticalGroup(
             jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,69 +233,98 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("Palavra encontrada?");
 
-        jTextField2.setEditable(false);
+        jTextFieldEncontrada.setEditable(false);
 
         jLabel6.setText("tempo de procura:");
 
-        jTextField3.setEditable(false);
+        jTextFieldTempoBusca.setEditable(false);
 
         jButton4.setText("Busca Binária");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
-        jButton6.setText("Busca  Sequencial");
+        jButtonBuscaSequencial.setText("Busca  Sequencial");
+        jButtonBuscaSequencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscaSequencialActionPerformed(evt);
+            }
+        });
+
+        jComboBoxFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel7.setText("Dicionario");
 
         javax.swing.GroupLayout jInternalFrameTesteFuncionalLayout = new javax.swing.GroupLayout(jInternalFrameTesteFuncional.getContentPane());
         jInternalFrameTesteFuncional.getContentPane().setLayout(jInternalFrameTesteFuncionalLayout);
         jInternalFrameTesteFuncionalLayout.setHorizontalGroup(
             jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
                 .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(jComboBoxFun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(485, 485, 485))
+                            .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                                        .addComponent(jButtonBuscaSequencial)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton4))
+                                    .addComponent(jTextFieldPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addComponent(jLabel3))
+                        .addGap(233, 233, 233)
+                        .addComponent(jLabel3)
+                        .addContainerGap())
                     .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
                         .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
-                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                            .addComponent(jTextField2)))
-                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
                         .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jButton4)
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton6))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(252, Short.MAX_VALUE))
+                            .addComponent(jTextFieldEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldTempoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jInternalFrameTesteFuncionalLayout.setVerticalGroup(
             jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton6))
-                .addGap(35, 35, 35)
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel3))
+                    .addGroup(jInternalFrameTesteFuncionalLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxFun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonBuscaSequencial)
+                    .addComponent(jButton4))
+                .addGap(24, 24, 24)
                 .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(jTextFieldEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jInternalFrameTesteFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(172, Short.MAX_VALUE))
+                    .addComponent(jTextFieldTempoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -286,11 +345,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -299,6 +358,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jTextFieldTempoDeOrdenacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTempoDeOrdenacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTempoDeOrdenacaoActionPerformed
+
+    private void jButtonEscolhertxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEscolhertxtMouseClicked
+        JFileChooser fc = new JFileChooser();
+        fc.setAcceptAllFileFilterUsed(false);
+        fc.setFileFilter(new FileNameExtensionFilter("Arquivo txt", "txt"));
+        fc.showOpenDialog(this);
+        File arquivo = fc.getSelectedFile();
+        if(arquivo != null) Dicionario.ordenarTXT(arquivo);
+    }//GEN-LAST:event_jButtonEscolhertxtMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButtonGoFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoFunActionPerformed
+        adicionarTela(jInternalFrameTesteFuncional);
+    }//GEN-LAST:event_jButtonGoFunActionPerformed
+
+    private void jButtonGoDicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoDicActionPerformed
+        adicionarTela(jInternalFrameTestDicionario);
+    }//GEN-LAST:event_jButtonGoDicActionPerformed
+
+    private void jButtonBuscaSequencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaSequencialActionPerformed
+        if(jComboBoxFun.getSelectedItem().toString().equals("Portuguese (Brazilian)")){
+            dicionarioControle = new DicionarioControle("Persian");
+            dicionario = dicionarioControle.buscar(1, Search.SEQUENCIAL, Sort.MERGESORT, jTextFieldPalavra.getText());
+            
+        }else{
+            dicionarioControle = new DicionarioControle(jComboBoxFun.getSelectedItem().toString());
+            dicionario = dicionarioControle.buscar(2, Search.SEQUENCIAL, Sort.MERGESORT, jTextFieldPalavra.getText());
+        }
+        
+        jTextFieldEncontrada.setText((dicionario.isAchou()) ? "Sim" : "Não");
+        jTextFieldTempoBusca.setText(dicionario.getTempoDeResposta_nanosegundo()+ "");
+    }//GEN-LAST:event_jButtonBuscaSequencialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,15 +432,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonBuscaSequencial;
+    private javax.swing.JButton jButtonEscolhertxt;
     private javax.swing.JButton jButtonGoDic;
     private javax.swing.JButton jButtonGoFun;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxFun;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JFileChooser jFileChooser2;
     private javax.swing.JInternalFrame jInternalFrameTelaInicial;
     private javax.swing.JInternalFrame jInternalFrameTestDicionario;
     private javax.swing.JInternalFrame jInternalFrameTesteFuncional;
@@ -356,10 +451,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldEncontrada;
+    private javax.swing.JTextField jTextFieldPalavra;
+    private javax.swing.JTextField jTextFieldTempoBusca;
     private javax.swing.JTextField jTextFieldTempoDeOrdenacao;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
