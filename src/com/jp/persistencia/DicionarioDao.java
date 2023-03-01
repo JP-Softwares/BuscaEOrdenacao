@@ -239,7 +239,6 @@ public class DicionarioDao implements IDicionarioDao {
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 vetorPalavra = ordenarVetores(vetor, ordenacao).getVetor();
                 achou = Busca.binaria(vetorPalavra, palavra, 0, vetorPalavra.length-1);
-                System.out.println(achou);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);

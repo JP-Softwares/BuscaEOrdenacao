@@ -4,6 +4,8 @@
  */
 package com.jp.modelos;
 
+import lista.Lista;
+
 /**
  *
  * @author Woly
@@ -18,6 +20,8 @@ public class Busca {
         return false;
     }
     
+    // String = {"oi", "eae", "uva", "fala", "bala"};
+    
     public static boolean binaria(String vetor[], String palavra, int inicio, int fim){
         if(inicio > fim) return false;
         
@@ -26,6 +30,31 @@ public class Busca {
         if(vetor[meio].equals(palavra)) return true;
         
         if(palavra.length() < vetor[meio].length()) return binaria(vetor, palavra, inicio, meio - 1);
+        
+        if(palavra.length() == vetor[meio].length()){
+            int cont = 1;
+            
+            Lista<String> lista = new Lista<>(vetor[meio]);
+            
+            while(vetor[meio - cont].length() == palavra.length()){
+                cont++;
+                lista.add(vetor[meio - cont]);
+            }
+            
+            cont = 1;
+            
+            while(vetor[meio + cont].length() == palavra.length()){
+                cont++;
+                lista.add(vetor[meio + cont]);
+            }
+            
+            Object[] objetoLista = lista.toArray();
+            vetor = new String[objetoLista.length];
+            
+            for(int i = 0; i < objetoLista.length; i++) vetor[i] = objetoLista[i].toString();
+            
+            return sequencial(vetor, palavra);
+        }
         
         return binaria(vetor, palavra, meio + 1, fim);
     }
