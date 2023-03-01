@@ -160,7 +160,7 @@ public class DicionarioDao implements IDicionarioDao {
     }
 
     @Override
-    public Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time) {
+    public Dicionario ordenarVetores(int vetor, Sort ordenacao) {
         
         String vetorPalavra[] = (vetor == 1) ? this.palavras_arquivoPTBR : this.palavras_arquivoSecundario;
         Dicionario dicionario = new Dicionario(vetorPalavra);
@@ -197,7 +197,7 @@ public class DicionarioDao implements IDicionarioDao {
     }
 
     @Override
-    public Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra, Time time) {
+    public Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra) {
         String vetorPalavra[] = (vetor == 1) ? this.palavras_arquivoPTBR : this.palavras_arquivoSecundario;
         Dicionario dicionario = new Dicionario(vetorPalavra);
         // Realizar a busca nos vetores aqui
@@ -214,7 +214,7 @@ public class DicionarioDao implements IDicionarioDao {
                 break;
             case BINARIA:
                 tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                String[] vetorOrdenado = ordenarVetores(vetor, ordenacao, time).getVetor();
+                String[] vetorOrdenado = ordenarVetores(vetor, ordenacao).getVetor();
                 achou = Busca.binaria(vetorOrdenado, palavra, 0, vetorPalavra.length-1);
                 tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;

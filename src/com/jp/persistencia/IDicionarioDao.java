@@ -17,7 +17,7 @@ public interface IDicionarioDao {
     
     //String[] listarIdiomas();
     
-    Dicionario ordenarVetores(int vetor, Sort ordenacao, Time time); // Se 1 = PT_BR, se 2 = idiomaSecundário
+    Dicionario ordenarVetores(int vetor, Sort ordenacao); // Se 1 = PT_BR, se 2 = idiomaSecundário
     
-    Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra, Time time);
+    Dicionario buscar(int vetor, Search busca, Sort ordenacao, String palavra);
 }
