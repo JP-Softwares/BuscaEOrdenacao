@@ -168,24 +168,40 @@ public class DicionarioDao implements IDicionarioDao {
         
         switch (ordenacao) {
             case SELECTIONSORT:
-                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.selectionSort(vetorPalavra);
-                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime() - nanosegundo;
+                //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case INSERTIONSORT:
-                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.selectionSort(vetorPalavra);
-                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime() - nanosegundo;
+                //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case MERGESORT:
-                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.mergeSort(vetorPalavra);
-                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime() - nanosegundo;
+                //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case QUICKSORT:
-                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 Ordenacao.quickSort(vetorPalavra);
-                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime() - nanosegundo;
+                //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
         }
         
@@ -207,15 +223,23 @@ public class DicionarioDao implements IDicionarioDao {
         
         switch (busca) {
             case SEQUENCIAL:
-                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 achou = Busca.sequencial(vetorPalavra, palavra);
-                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime() - nanosegundo;
+                //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
             case BINARIA:
-                tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis();
+                nanosegundo = System.nanoTime();
+                //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
                 String[] vetorOrdenado = ordenarVetores(vetor, ordenacao).getVetor();
                 achou = Busca.binaria(vetorOrdenado, palavra, 0, vetorPalavra.length-1);
-                tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
+                milisegundo = System.currentTimeMillis() - milisegundo;
+                nanosegundo = System.nanoTime() - nanosegundo;
+                //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
                 break;
         }
         
@@ -232,18 +256,18 @@ public class DicionarioDao implements IDicionarioDao {
         ANTES, DEPOIS
     };
     
-    private void tempoAtual(Tempo tempo, long milisegundo, long nanosegundo){
-        switch (tempo) {
-            case ANTES:
-                milisegundo = System.currentTimeMillis();
-                nanosegundo = System.nanoTime();
-                break;
-            case DEPOIS:
-                milisegundo = System.currentTimeMillis() - milisegundo;
-                nanosegundo = System.nanoTime()- nanosegundo;
-                break;
-        }
-    }
+//    private void tempoAtual(Tempo tempo, long milisegundo, long nanosegundo){
+//        switch (tempo) {
+//            case ANTES:
+//                milisegundo = System.currentTimeMillis();
+//                nanosegundo = System.nanoTime();
+//                break;
+//            case DEPOIS:
+//                milisegundo = System.currentTimeMillis() - milisegundo;
+//                nanosegundo = System.nanoTime()- nanosegundo;
+//                break;
+//        }
+//    }
     
 //    private boolean vetorExiste(int vetor){
 //        if(vetor != 1 || vetor != 2) return false;
