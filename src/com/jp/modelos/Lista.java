@@ -43,8 +43,6 @@ public class Lista<E> {
             tamanho++; // tamanho = 1
             return;
         }
-        
-        System.out.println("oi");
         Lista<E> lista = this;
         while(lista.proximo != null){
             lista = lista.proximo;
