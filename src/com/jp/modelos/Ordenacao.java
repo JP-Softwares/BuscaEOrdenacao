@@ -69,60 +69,22 @@ public class Ordenacao {
     
     // Mergesort e QuickSort
     
-    public static String[] mergeSort(String vetor[]) {
-        if(vetor.length == 0) return vetor; // vetor não tem nenhuma posição
-        int inicio = 0; // Nos comentários abaixo estou testando quando o vetor tem 1, 2 e 3 posições.
-        int fim = vetor.length - 1; // 0, 1, 2 
-        int meio = (inicio + fim) / 2; // 0, 0.5 -> 0, 1
+    public static String[] mergeSort(String[] vetor, int inicio, int fim){
+        merge(vetor, inicio, fim);
         
-        String vetor1[] = new String[(meio - inicio) + 1]; // 1, 1, 2
-        String vetor2[] = new String[(fim - (meio + 1)) + 1]; // 0, 1, 1
-        
-        if(vetor2.length == 0) return vetor; // Quer dizer que o vetor só tem 1 posição
-        
-        int contador = 0;
-        for(int i = 0; i < vetor1.length; i++){
-            vetor1[i] = vetor[contador];
-            contador++;
+        return vetor;
+    }
+    
+    public static void merge(String[] vetor, int inicio, int fim){
+        if (inicio < fim){  
+            int meio = (inicio + fim) / 2;  
+            mergeSort(vetor, inicio, meio);  
+            mergeSort(vetor, meio + 1, fim);  
+            intercala(vetor, inicio, meio, fim);  
         }
-        
-        for(int i = 0; i < vetor2.length; i++){
-            vetor2[i] = vetor[contador];
-            contador++;
-        }
-        
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                selectionSort(vetor1);
-            }
-        }).run();
-        
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                selectionSort(vetor2);
-            }
-        }).run();
-        
-//        selectionSort(vetor1);
-//        selectionSort(vetor2);
-        //vetor2 = 
-        
-        int cont = 0;
-        for(int i = 0; i < vetor.length; i++){
-            
-            if(i == vetor1.length) cont = 0;
-            
-            if(i < vetor1.length){
-                vetor[i] = vetor1[cont];
-                cont++;
-            }else{
-                vetor[i] = vetor2[cont];
-                cont++;
-            }
-        }
-        
+    }
+    
+    private static String[] intercala(String vetor[], int inicio, int meio, int fim) {
         
         // transfere os elementos entre left e right para um array auxiliar.
         String[] helper = new String[vetor.length];
@@ -131,9 +93,9 @@ public class Ordenacao {
         }
 
 
-        int i = 0;
+        int i = meio;
         int j = meio + 1;
-        int k = 0;
+        int k = meio;
 
         while (i <= meio && j <= fim) {
 

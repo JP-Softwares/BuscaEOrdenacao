@@ -189,7 +189,7 @@ public class DicionarioDao implements IDicionarioDao {
                 milisegundo = System.currentTimeMillis();
                 nanosegundo = System.nanoTime();
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                Ordenacao.mergeSort(vetorPalavra);
+                Ordenacao.mergeSort(vetorPalavra, 0, vetorPalavra.length - 1);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);

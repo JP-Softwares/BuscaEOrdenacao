@@ -34,17 +34,21 @@ public class Busca {
         if(palavra.length() == vetor[meio].length()){
             int cont = 1;
             
-            while(vetor[meio - cont].length() == palavra.length() && !vetor[meio - cont].equals(palavra)){
-                cont++;
-            }
+            try {
+                while(vetor[meio - cont].length() == palavra.length() && !vetor[meio - cont].equals(palavra)){
+                    cont++;
+                }
+            } catch (Exception e) {}
             
             if(vetor[meio - cont].equals(palavra)) return true;
             
             cont = 1;
             
-            while(vetor[meio + cont].length() == palavra.length() && !vetor[meio + cont].equals(palavra)){
-                cont++;
-            }
+            try {
+                while(vetor[meio + cont].length() == palavra.length() && !vetor[meio + cont].equals(palavra)){
+                    cont++;
+                }
+            } catch (Exception e) {}
             
             if(vetor[meio + cont].equals(palavra)) return true;
             

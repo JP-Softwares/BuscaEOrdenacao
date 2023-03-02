@@ -44,6 +44,7 @@ public class Lista<E> {
             return;
         }
         
+        System.out.println("oi");
         Lista<E> lista = this;
         while(lista.proximo != null){
             lista = lista.proximo;
@@ -63,6 +64,35 @@ public class Lista<E> {
             }else lista = null;
         }
         return lista.valor;
+    }
+    
+    public boolean set(int index, E valor){
+        if(tamanho == 0) {
+            add(valor);
+            return true;
+        }
+        
+        if(index == 0) {
+            this.valor = valor;
+            return true;
+        }
+        
+        Lista<E> lista = this;
+        
+        int i = 0;
+        for(i = 0; i < index && this.proximo != null; i++){
+            lista = lista.proximo;
+        }
+        if(i < index) return false;
+        
+        if(lista.proximo == null) {
+            lista.add(valor);
+            return true;
+        }else{
+            lista.valor = valor;
+        }
+        
+        return true;
     }
     
     public boolean remove(int index){
