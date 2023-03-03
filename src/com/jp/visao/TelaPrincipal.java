@@ -39,24 +39,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         adicionarTela(jInternalFrameTelaInicial);
         listar();
-        
-        // método set não funciona para o último item da lista.
-        Lista<String> lista = new Lista<>("sus");
-        lista.add("opa");
-        
-        lista.add("eae");
-        
-        lista.add("fala");
-        
-        System.out.println(lista.getTamanho());
-        
-        lista.set(3, "modificou");
-        
-        for(int i = 0; i < lista.getTamanho(); i++){
-            System.out.print(lista.get(i) + " | ");
-        }
-        
-        System.out.println(lista.getTamanho());
     }
     
     public void listar(){

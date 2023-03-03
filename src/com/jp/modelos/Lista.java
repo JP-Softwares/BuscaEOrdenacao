@@ -77,20 +77,24 @@ public class Lista<E> {
         
         Lista<E> lista = this;
         
-        int i = 0;
+        int i;
         for(i = 0; i < index && this.proximo != null; i++){
             lista = lista.proximo;
         }
+        
         if(i < index) return false;
         
-        if(lista.proximo == null) {
-            lista.add(valor);
-            return true;
-        }else{
+        if(i == index) {
             lista.valor = valor;
+            return true;
         }
         
-        return true;
+        if(lista.proximo == null){
+            add(valor);
+            return true;
+        }
+        
+        return false;
     }
     
     public boolean remove(int index){
@@ -133,13 +137,13 @@ public class Lista<E> {
         return false;
     }
 
-    public E getValor() {
-        return valor;
-    }
-
-    public void setValor(E valor) {
-        this.valor = valor;
-    }
+//    public E getValor() {
+//        return valor;
+//    }
+//
+//    public void setValor(E valor) {
+//        this.valor = valor;
+//    }
 
     public int getTamanho() {
         return tamanho;
