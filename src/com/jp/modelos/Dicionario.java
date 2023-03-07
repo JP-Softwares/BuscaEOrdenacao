@@ -54,6 +54,10 @@ public class Dicionario {
     public static void ordenarTXT(File entradaTXT){
         DicionarioDao.ordenarTXT(entradaTXT);
     }
+    
+    public static void saidaTXT(File saidaTxt, String[] vetor){
+        DicionarioDao.saidaTXT(saidaTxt, vetor);
+    }
 
     public String[] getVetor() {
         return vetor;

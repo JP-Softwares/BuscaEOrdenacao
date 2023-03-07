@@ -104,6 +104,24 @@ public class DicionarioDao implements IDicionarioDao {
         }
     }
     
+    public static void saidaTXT(File saidaTxt, String[] vetor){
+        if(!saidaTxt.getName().endsWith(".txt")) saidaTxt = new File(saidaTxt.getAbsolutePath() + ".txt");
+        try {
+            saidaTxt.delete();
+            FileWriter fw = new FileWriter(saidaTxt, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            for(int i = 0; i < vetor.length; i++){
+                bw.write(vetor[i]);
+                bw.newLine();
+            }
+            
+            bw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public DicionarioDao(String idiomaSecundario) {
         buscarVetores(idiomaSecundario);
     }
