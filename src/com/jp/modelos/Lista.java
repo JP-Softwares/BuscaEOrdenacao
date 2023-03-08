@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Eemplates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Eemplates/Classes/Class.java to edit this template
  */
-package lista;
+package com.jp.modelos;
 
 /**
  *

@@ -4,7 +4,6 @@
  */
 package com.jp.modelos;
 
-import lista.Lista;
 
 /**
  *

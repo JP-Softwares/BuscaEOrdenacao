@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.charset.Charset;
-import lista.Lista;
+import com.jp.modelos.Lista;
 
 /**
  *

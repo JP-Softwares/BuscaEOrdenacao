@@ -18,7 +18,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import lista.Lista;
+import com.jp.modelos.Lista;
 
 /**
  *
