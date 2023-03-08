@@ -105,7 +105,7 @@ public class DicionarioDao implements IDicionarioDao {
     }
     
     public static void saidaTXT(File saidaTxt, String[] vetor){
-        saidaTxt = new File(saidaTxt.getAbsolutePath() + "saida.txt");
+        saidaTxt = new File(saidaTxt.getAbsolutePath() + "\\saida.txt");
         try {
             saidaTxt.delete();
             FileWriter fw = new FileWriter(saidaTxt, true);
