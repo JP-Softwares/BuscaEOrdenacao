@@ -81,6 +81,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonInsertionSort = new javax.swing.JButton();
         jButtonQuickSort = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jInternalFrameTesteFuncional = new javax.swing.JInternalFrame();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldPalavra = new javax.swing.JTextField();
@@ -198,6 +199,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Gerar txt");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jInternalFrameTestDicionarioLayout = new javax.swing.GroupLayout(jInternalFrameTestDicionario.getContentPane());
         jInternalFrameTestDicionario.getContentPane().setLayout(jInternalFrameTestDicionarioLayout);
         jInternalFrameTestDicionarioLayout.setHorizontalGroup(
@@ -214,13 +222,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldTempoDeOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonInsertionSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonMergeSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonSelectionSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonQuickSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
+                                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonInsertionSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonMergeSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonSelectionSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonQuickSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jButton2)))
                     .addGroup(jInternalFrameTestDicionarioLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButtonVoltar)))
@@ -243,8 +254,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(103, 103, 103)
                 .addGroup(jInternalFrameTestDicionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldTempoDeOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(194, Short.MAX_VALUE))
+                    .addComponent(jTextFieldTempoDeOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         jInternalFrameTesteFuncional.setBorder(null);
@@ -508,6 +520,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         adicionarTela(jInternalFrameTelaInicial);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fc.showSaveDialog(this);
+        File arquivo = fc.getSelectedFile();
+        if(arquivo != null) System.out.println(arquivo.getAbsolutePath());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -545,6 +566,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonBuscaBinaria;
     private javax.swing.JButton jButtonBuscaSequencial;
     private javax.swing.JButton jButtonEscolhertxt;
