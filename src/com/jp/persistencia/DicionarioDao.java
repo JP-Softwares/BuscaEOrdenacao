@@ -14,6 +14,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.nio.charset.Charset;
 import lista.Lista;
 
 /**
@@ -189,7 +190,7 @@ public class DicionarioDao implements IDicionarioDao {
                 milisegundo = System.currentTimeMillis();
                 nanosegundo = System.nanoTime();
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                Ordenacao.selectionSort(vetorPalavra);
+                vetorPalavra = Ordenacao.selectionSort(vetorPalavra);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
@@ -198,7 +199,7 @@ public class DicionarioDao implements IDicionarioDao {
                 milisegundo = System.currentTimeMillis();
                 nanosegundo = System.nanoTime();
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                Ordenacao.selectionSort(vetorPalavra);
+                vetorPalavra = Ordenacao.selectionSort(vetorPalavra);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
@@ -207,7 +208,7 @@ public class DicionarioDao implements IDicionarioDao {
                 milisegundo = System.currentTimeMillis();
                 nanosegundo = System.nanoTime();
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                Ordenacao.mergeSort(vetorPalavra, 0, vetorPalavra.length - 1);
+                vetorPalavra = Ordenacao.mergeSort(vetorPalavra, 0, vetorPalavra.length - 1);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
@@ -216,7 +217,7 @@ public class DicionarioDao implements IDicionarioDao {
                 milisegundo = System.currentTimeMillis();
                 nanosegundo = System.nanoTime();
                 //tempoAtual(Tempo.ANTES, milisegundo, nanosegundo);
-                Ordenacao.quickSort(vetorPalavra);
+                vetorPalavra = Ordenacao.quickSort(vetorPalavra);
                 milisegundo = System.currentTimeMillis() - milisegundo;
                 nanosegundo = System.nanoTime() - nanosegundo;
                 //tempoAtual(Tempo.DEPOIS, milisegundo, nanosegundo);
